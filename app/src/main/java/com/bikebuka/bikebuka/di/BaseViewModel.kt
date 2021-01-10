@@ -2,5 +2,8 @@ package com.bikebuka.bikebuka.di
 
 import androidx.lifecycle.ViewModel
 
-open class BaseViewModel : ViewModel() {
+abstract class BaseViewModel : ViewModel() {
+    override fun onCleared() {
+        super.onCleared()
+    }
 }
