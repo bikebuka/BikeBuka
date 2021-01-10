@@ -37,7 +37,7 @@ This project takes advantage of many popular libraries and tools of the Android 
  ```
  MIT License
  
- Copyright (c) 2020 Juma Allan
+ Copyright (c) 2021 Bike Buka
  
  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and 
  associated documentation files (the "Software"), to deal in the Software without restriction, including 
