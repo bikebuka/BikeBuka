@@ -14,7 +14,7 @@ class HomeAdapter : BaseRecyclerViewAdapter<Bike, BikeItemBinding>() {
         holder: Companion.BaseViewHolder<BikeItemBinding>,
         position: Int
     ) {
-        //holder.binding.bikeImage = items[position]
+        holder.binding.bike = items[position]
         //onclick event
         holder.binding.root.setOnClickListener {
             listener?.invoke(it, items[position], position)
