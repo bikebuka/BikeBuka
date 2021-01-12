@@ -3,7 +3,7 @@ package com.bikebuka.bikebuka.di
 import android.content.Context
 import androidx.room.Room
 import com.bikebuka.bikebuka.domain.BikeBukaDatabase
-import com.bikebuka.bikebuka.network.Api
+import com.bikebuka.bikebuka.service.Api
 import com.bikebuka.bikebuka.utils.Constants.Companion.BASEURL
 import com.bikebuka.bikebuka.utils.Constants.Companion.DATABASENAME
 import dagger.Module
