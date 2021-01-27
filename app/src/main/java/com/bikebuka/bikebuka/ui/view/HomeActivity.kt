@@ -5,6 +5,7 @@ import android.os.Handler
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.databinding.DataBindingUtil
@@ -17,9 +18,15 @@ import com.bikebuka.bikebuka.domain.Bike
 import com.bikebuka.bikebuka.ui.viewmodel.HomeViewModel
 import com.facebook.shimmer.ShimmerFrameLayout
 import com.google.android.material.datepicker.MaterialDatePicker
+import dagger.hilt.android.AndroidEntryPoint
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.schedulers.Schedulers
+import timber.log.Timber
 
+@AndroidEntryPoint
 class HomeActivity : AppCompatActivity() {
-    lateinit var viewModel: HomeViewModel
+    private val viewModel: HomeViewModel by viewModels()
     lateinit var homeRecyclerView: RecyclerView
     lateinit var binding: ActivityHomeBinding
     lateinit var shimmerFrameLayout: ShimmerFrameLayout
@@ -28,6 +35,9 @@ class HomeActivity : AppCompatActivity() {
     private val homeAdapter by lazy {
         HomeAdapter()
     }
+    private val compositeDisposable by lazy {
+        CompositeDisposable()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +45,7 @@ class HomeActivity : AppCompatActivity() {
         shimmerFrameLayout = findViewById(R.id.shimmerFrameLayout)
         pickupDate = findViewById(R.id.pick_date)
         returnDate = findViewById(R.id.return_date)
-        viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
+
         homeRecyclerView = findViewById(R.id.home_recycler)
         val bikes = ArrayList<Bike>()
         bikes.add(Bike(name = "Mountain", description = "A good bike", price = "100", id = 1))
@@ -82,6 +92,14 @@ class HomeActivity : AppCompatActivity() {
                 Toast.makeText(this, "Date: ${picker.headerText}", Toast.LENGTH_LONG).show()
             }
         }
+        compositeDisposable.add(
+            viewModel.getBikes()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                    { data -> data.toString() },
+                    { t -> Timber.e("Error======> ${t.localizedMessage}") })
+        )
     }
 
     override fun onResume() {
