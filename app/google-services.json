@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "811919271687",
+    "project_id": "bikebuka-8ff9c",
+    "storage_bucket": "bikebuka-8ff9c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:811919271687:android:b01e5ec84716aa3e2d47a2",
+        "android_client_info": {
+          "package_name": "com.bikebuka.bikebuka"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "811919271687-poev338vdgrejonb7eh6g591hu7g6f02.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVbofpZU6T_oVBvyac96hZsmFmjKtPXHs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "811919271687-poev338vdgrejonb7eh6g591hu7g6f02.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

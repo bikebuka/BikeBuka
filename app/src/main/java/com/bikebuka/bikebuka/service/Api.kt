@@ -1,10 +1,10 @@
-package com.bikebuka.bikebuka.repository
+package com.bikebuka.bikebuka.service
 
 import com.bikebuka.bikebuka.service.response.BikesList
 import io.reactivex.Observable
-import okhttp3.ResponseBody
-import retrofit2.Call
+import retrofit2.http.GET
 
-interface BikeRepository {
+interface Api {
+    @GET("/api/controller/v1/bookings/index.php")
     fun getBikes(): Observable<BikesList>
 }

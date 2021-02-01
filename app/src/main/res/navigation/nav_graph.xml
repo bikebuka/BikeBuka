@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/registration">
+
+    <fragment
+        android:id="@+id/otp_verification"
+        android:name="com.bikebuka.bikebuka.ui.view.OtpFragment"
+        tools:layout="@layout/fragment_otp" />
+
+    <fragment
+        android:id="@+id/registration"
+        android:name="com.bikebuka.bikebuka.ui.view.RegisterFragment"
+        tools:layout="@layout/fragment_register">
+
+        <action
+            android:id="@+id/action_registration_to_otp_verification"
+            app:destination="@id/otp_verification" />
+    </fragment>
+</navigation>
