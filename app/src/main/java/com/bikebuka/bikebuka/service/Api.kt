@@ -5,6 +5,6 @@ import io.reactivex.Observable
 import retrofit2.http.GET
 
 interface Api {
-    @GET("/api/controller/rest-apis/bookings/index.php")
+    @GET("/api/controller/v1/bookings/index.php")
     fun getBikes(): Observable<BikesList>
 }
