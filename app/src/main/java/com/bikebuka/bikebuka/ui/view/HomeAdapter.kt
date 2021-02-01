@@ -15,9 +15,7 @@ class HomeAdapter : BaseRecyclerViewAdapter<Bike, BikeItemBinding>() {
         position: Int
     ) {
         holder.binding.bike = items[position]
-
-        //onclick event
-        holder.binding.root.setOnClickListener {
+        holder.binding.bookBike.setOnClickListener {
             listener?.invoke(it, items[position], position)
         }
     }
