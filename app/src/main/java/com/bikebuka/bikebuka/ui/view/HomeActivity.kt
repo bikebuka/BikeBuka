@@ -43,6 +43,12 @@ class HomeActivity : AppCompatActivity() {
         shimmerFrameLayout = findViewById(R.id.shimmerFrameLayout)
 
         homeRecyclerView = findViewById(R.id.home_recycler)
+        homeAdapter.listener = { _, item, _ ->
+            BottomSheetDialog().apply {
+                show(supportFragmentManager, "MainActivity.kt")
+                Timber.d(item.BikeDescription)
+            }
+        }
 
         compositeDisposable.add(
             viewModel.getBikes()

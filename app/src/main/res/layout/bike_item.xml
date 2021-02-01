@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -34,14 +35,16 @@
 
             <TextView
                 android:id="@+id/txt_name"
-                style="@style/TextAppearance.MaterialComponents.Headline6"
+                style="@style/TextAppearance.MaterialComponents.Body2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="12dp"
-                android:text="Mountain Bike"
+                android:text="@{bike.bikeType}"
+                android:textSize="17sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/bike_image" />
+                app:layout_constraintTop_toBottomOf="@+id/bike_image"
+                tools:text="Bike type" />
 
             <TextView
                 android:id="@+id/textView2"
@@ -50,9 +53,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="6dp"
-                android:text="@{bike.pricePerMinute + ` Ksh. per minute`}"
+                android:text="@{`Price: `+bike.pricePerMinute + ` Ksh. per minute`}"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txt_name" />
+                app:layout_constraintTop_toBottomOf="@+id/txt_name"
+                tools:text="Price" />
 
             <TextView
                 android:id="@+id/textView3"
@@ -60,20 +64,35 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
-                android:text="@{bike.bikeLocation}"
+                android:text="@{`Location: `+bike.bikeLocation}"
                 app:layout_constraintBottom_toBottomOf="@+id/textView2"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/txt_name" />
+                app:layout_constraintTop_toTopOf="@+id/txt_name"
+                tools:text="Location" />
 
             <TextView
                 android:id="@+id/textView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
-                android:text="Minimum billing of 6 hours on weekends and 20 hours..."
+                android:text="@{`Description:\n`+ bike.bikeDescription}"
+                android:textAlignment="center"
                 app:layout_constraintEnd_toEndOf="@+id/textView3"
                 app:layout_constraintStart_toStartOf="@+id/textView2"
-                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+                app:layout_constraintTop_toBottomOf="@+id/textView2"
+                tools:text="Description" />
+
+            <Button
+                android:id="@+id/book_bike"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="Book Now"
+                android:textAllCaps="false"
+                android:textColor="@color/teal_200"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
