@@ -11,11 +11,11 @@
     </data>
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/bike_item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
         app:cardCornerRadius="10dp"
-        app:cardElevation="10dp"
         app:cardPreventCornerOverlap="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -96,4 +96,5 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
+
 </layout>

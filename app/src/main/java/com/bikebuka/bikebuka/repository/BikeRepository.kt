@@ -7,4 +7,6 @@ import retrofit2.Call
 
 interface BikeRepository {
     fun getBikes(): Observable<BikesList>
+
+    fun filterBikeByLocation(location: String): Observable<BikesList>
 }

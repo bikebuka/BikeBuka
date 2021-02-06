@@ -12,8 +12,12 @@ class BikeRepositoryImpl @Inject constructor(
     private val bikeDao: BikeDao,
     private val api: Api
 ) : BikeRepository {
-    override fun getBikes(): Observable<BikesList>{
+    override fun getBikes(): Observable<BikesList> {
         return api.getBikes()
+    }
+
+    override fun filterBikeByLocation(location: String): Observable<BikesList> {
+        return api.filterBikeByLocation(location)
     }
 
 }

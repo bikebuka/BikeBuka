@@ -1,23 +1,16 @@
 package com.bikebuka.bikebuka.ui.view
 
 import android.os.Bundle
-import android.os.Handler
 import android.view.View
-import android.widget.TextView
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bikebuka.bikebuka.R
 import com.bikebuka.bikebuka.databinding.ActivityHomeBinding
-import com.bikebuka.bikebuka.domain.Bike
 import com.bikebuka.bikebuka.ui.viewmodel.HomeViewModel
 import com.facebook.shimmer.ShimmerFrameLayout
-import com.google.android.material.datepicker.MaterialDatePicker
 import dagger.hilt.android.AndroidEntryPoint
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -49,6 +42,12 @@ class HomeActivity : AppCompatActivity() {
                 Timber.d(item.BikeDescription)
             }
         }
+//        homeAdapter.itemListener = { _, item, _ ->
+//            val bundle = transformationLayout.withActivity(this, "TransformationParams")
+//            val intent = Intent(this, BikeDetailActivity::class.java)
+//            intent.putExtra("TransformationParams", transformationLayout.getParcelableParams())
+//            startActivity(intent, bundle)
+//        }
 
         compositeDisposable.add(
             viewModel.getBikes()

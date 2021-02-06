@@ -1,7 +1,7 @@
 package com.bikebuka.bikebuka.ui.view
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.bikebuka.bikebuka.R
 
 class BikeDetailActivity : AppCompatActivity() {

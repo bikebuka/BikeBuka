@@ -17,4 +17,8 @@ class HomeViewModel @ViewModelInject constructor(
         return bikeRepository.getBikes()
     }
 
+    fun filterBikeByLocation(location: String): Observable<BikesList> {
+        return bikeRepository.filterBikeByLocation(location)
+    }
+
 }
