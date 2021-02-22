@@ -2,6 +2,7 @@ package com.bikebuka.bikebuka.repository
 
 import com.bikebuka.bikebuka.domain.BikeDao
 import com.bikebuka.bikebuka.service.Api
+import com.bikebuka.bikebuka.service.response.Bike
 import com.bikebuka.bikebuka.service.response.BikesList
 import io.reactivex.Observable
 import okhttp3.ResponseBody
@@ -18,6 +19,10 @@ class BikeRepositoryImpl @Inject constructor(
 
     override fun filterBikeByLocation(location: String): Observable<BikesList> {
         return api.filterBikeByLocation(location)
+    }
+
+    override fun getBikeById(id: String): Observable<Bike> {
+        return api.getBikeById(id)
     }
 
 }

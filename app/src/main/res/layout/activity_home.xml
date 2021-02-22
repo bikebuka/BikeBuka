@@ -9,10 +9,10 @@
             name="viewmodel"
             type="com.bikebuka.bikebuka.ui.viewmodel.HomeViewModel" />
     </data>
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#ccc"
         tools:context=".ui.view.HomeActivity">
 
         <com.facebook.shimmer.ShimmerFrameLayout

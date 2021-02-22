@@ -14,8 +14,10 @@
         android:id="@+id/bike_item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="4dp"
+        android:layout_margin="5dp"
+        android:elevation="15dp"
         app:cardCornerRadius="10dp"
+        app:cardMaxElevation="15dp"
         app:cardPreventCornerOverlap="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout

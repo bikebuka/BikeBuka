@@ -16,9 +16,13 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.BikeBuka">
-        <activity android:name=".ui.view.BikeDetailActivity" />
+        <activity
+            android:name=".ui.view.BikeDetailActivity"
+            android:parentActivityName=".ui.view.HomeActivity" />
         <activity android:name=".ui.view.AuthActivity" />
-        <activity android:name=".ui.view.SplashActivity">
+        <activity
+            android:name=".ui.view.SplashActivity"
+            android:theme="@style/Theme.App">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

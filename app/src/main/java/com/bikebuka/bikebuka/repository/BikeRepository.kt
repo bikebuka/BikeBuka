@@ -1,5 +1,6 @@
 package com.bikebuka.bikebuka.repository
 
+import com.bikebuka.bikebuka.service.response.Bike
 import com.bikebuka.bikebuka.service.response.BikesList
 import io.reactivex.Observable
 import okhttp3.ResponseBody
@@ -9,4 +10,5 @@ interface BikeRepository {
     fun getBikes(): Observable<BikesList>
 
     fun filterBikeByLocation(location: String): Observable<BikesList>
+    fun getBikeById(id: String): Observable<Bike>
 }

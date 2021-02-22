@@ -6,4 +6,6 @@
     <string name="permission_required_toast">Permission Required</string>
     <string name="permission_rationale_location">Rationale</string>
     <string name="location_permission_denied">Required</string>
+    <string name="filterdialog_back">Back</string>
+    <string name="filterdialog_clear">Clear</string>
 </resources>
