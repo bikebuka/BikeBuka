@@ -4,6 +4,7 @@ import com.bikebuka.bikebuka.domain.BikeDao
 import com.bikebuka.bikebuka.service.Api
 import com.bikebuka.bikebuka.service.response.Bike
 import com.bikebuka.bikebuka.service.response.BikesList
+import com.bikebuka.bikebuka.service.response.Booking
 import io.reactivex.Observable
 import okhttp3.ResponseBody
 import retrofit2.Call
@@ -23,6 +24,10 @@ class BikeRepositoryImpl @Inject constructor(
 
     override fun getBikeById(id: String): Observable<Bike> {
         return api.getBikeById(id)
+    }
+
+    override fun saveBooking(booking: Booking) {
+        return api.postBookingInfo(booking)
     }
 
 }

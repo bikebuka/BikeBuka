@@ -12,6 +12,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.work.OneTimeWorkRequest
+import androidx.work.WorkManager
 import com.androidstudy.daraja.Daraja
 import com.androidstudy.daraja.DarajaListener
 import com.androidstudy.daraja.model.AccessToken
@@ -19,6 +21,7 @@ import com.androidstudy.daraja.model.LNMExpress
 import com.androidstudy.daraja.model.LNMResult
 import com.androidstudy.daraja.util.TransactionType
 import com.bikebuka.bikebuka.R
+import com.bikebuka.bikebuka.utils.BookingWorker
 import com.bikebuka.bikebuka.utils.Constants.Companion.ACCOUNT_DESC
 import com.bikebuka.bikebuka.utils.Constants.Companion.ACCOUNT_REF
 import com.bikebuka.bikebuka.utils.Constants.Companion.BASEURL
@@ -46,6 +49,7 @@ class BottomSheetDialog : BottomSheetDialogFragment() {
     private lateinit var pick: Date
     private lateinit var returning: Date
     private lateinit var userName: TextInputEditText
+    private val workManager = WorkManager.getInstance(requireContext())
     var date: Calendar? = null
 
     override fun onCreateView(
@@ -76,6 +80,10 @@ class BottomSheetDialog : BottomSheetDialogFragment() {
         }
     }
 
+    private fun startWork() {
+        workManager.enqueue(OneTimeWorkRequest.from(BookingWorker::class.java))
+    }
+
     private fun initDaraja() {
         daraja = Daraja.with(
             CONSUMER_KEY,
@@ -93,7 +101,7 @@ class BottomSheetDialog : BottomSheetDialogFragment() {
 
     @SuppressLint("SetTextI18n")
     private fun pay() {
-        if (pickup_date_time.text.isNullOrEmpty() || return_date_time.text.isNullOrEmpty() || phone.text.isNullOrEmpty() || userName.text.isNullOrEmpty()) {
+        if (pickup_date_time.text.isNullOrEmpty() || return_date_time.text.isNullOrEmpty() || phone.text.isNullOrEmpty() || userName.text.isNullOrEmpty() || phone.text.toString().length != 10) {
             //set price
             Toast.makeText(
                 requireContext(),

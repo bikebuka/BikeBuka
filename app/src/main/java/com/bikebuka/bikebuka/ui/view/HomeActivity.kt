@@ -51,9 +51,9 @@ class HomeActivity : AppCompatActivity() {
             }
         }
         homeAdapter.itemListener = { _, item, _ ->
-            val intent = Intent(this, BikeDetailActivity::class.java)
-            intent.putExtra("id", item.BikeId)
-            startActivity(intent)
+//            val intent = Intent(this, BikeDetailActivity::class.java)
+//            intent.putExtra("id", item.BikeId)
+//            startActivity(intent)
         }
         locations = ArrayList()
         locations.add(Location(1, "Jkuat Student Center"))
